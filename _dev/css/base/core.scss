@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10vh;
+    overflow-x: hidden;
+}
+
+$gold: #EDDD95;
+$white: #ffffff;
+$dark: #000000;
+$grey: #7A7A7A;
+
+body {
+    font-family: 'Spartan', sans-serif;
+    font-display: swap;
+    font-weight: 100;
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.6;
+    background-color: $dark;
+    color: $white;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+h1,h2,h3,h4 {
+    line-height: 1.5;
+}
+
+$breakpoints: (
+  'mobile':  480px,
+  'small': 768px,
+  'tablet': 1024px,
+  'laptop':  1200px,
+  'large': 1600px,
+  'fullhd': 1920px
+) !default;
+
+@mixin responsive($breakpoint) {
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+      // Prints a media query based on the value
+      @media (max-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+   
+    // If the key doesn't exist in the map
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+$container: 80vw;
+$containerMobile: 90vw;
+
+.container {
+    width: min($container, 1600px);
+    margin: 0 auto;
+    position: relative;
+    @include responsive('tablet') {
+        width: min($containerMobile, 900px);
+    }
+}
+
+@media screen and (max-width: 782px) {
+    html {
+        margin-top: 0px !important;
+    }
+}
+
+.admin-bar header{
+    margin-top: 32px;
+    @include responsive('small') {
+        margin-top: 46px;
+    }
+}
+
+.goldFont {
+    color: $gold;
+}
+
+.outlineButton {
+    background-color: transparent;
+    padding: clamp(18px, 1.3vw, 36px) clamp(50px, 5.5vw, 120px);
+    border: 1px solid $gold;
+    color: $gold;
+    font-size: 16px;
+    text-transform: lowercase;
+    width: fit-content;
+    transition: background-color .25s ease-in-out;
+    -webkit-transition: background-color .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out;
+    -ms-transition: background-color .25s ease-in-out;
+    -o-transition: background-color .25s ease-in-out;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.outlineButton:hover {
+    background-color: $gold;
+    color: $dark;
+}
+
+
+.line--left {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 25%;
+    height: 100%;
+    width: .5px;
+    background-image: linear-gradient(180deg, rgba(191,191,191,0.6) 0%, rgba(94,94,94,0.6) 55%, rgba(98,98,98,0.8) 100%);
+}
+
+.line--right {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 25%;
+    height: 100%;
+    width: .5px;
+    background-image: linear-gradient(180deg, rgba(191,191,191,0.6) 0%, rgba(94,94,94,0.6) 55%, rgba(98,98,98,0.8) 100%);
+}
+
+.title--small {
+    letter-spacing: 4px;
+    color: $gold;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: clamp(32px, 3.5vw, 80px);
+}

@@ -1,0 +1,100 @@
+.footerWrapper {
+    background-color: $gold;
+    padding: 10vh 0;
+    color: $dark;
+    position: relative;
+}
+
+.footerInner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vw;
+    @include responsive('small') {
+        grid-template-columns: 1fr;
+        gap: 12vw;
+    }
+}
+
+.footerInner span {
+    font-size: clamp(16px, 1.2vw, 26px);
+    letter-spacing: clamp(2px, 3px, 4px);
+    display: block;
+}
+
+.footerInner h1 {
+    font-size: clamp(20px, 2.4vw, 50px);
+}
+
+.footerRight {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    @include responsive('small') {
+        align-items: flex-start;
+    }
+}
+
+.footerRight h1 {
+    font-size: clamp(20px, 2vw, 30px);
+}
+
+.footerLogo {
+    max-width: 300px;
+    margin-bottom: 30px;
+    @include responsive('small') {
+        max-width: 250px;
+    }
+}
+
+.scrollTop {
+    margin-bottom: 50px;
+    @include responsive('small') {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+.footerWriteUs {
+    border: 1.5px solid $dark;
+    padding: 20px 80px;
+    margin-top: 20px;
+    display: block;
+    width: fit-content;
+    transition: background .2s ease-in-out;
+    -webkit-transition: background .2s ease-in-out;
+    -moz-transition: background .2s ease-in-out;
+    -ms-transition: background .2s ease-in-out;
+    -o-transition: background .2s ease-in-out;
+    @include responsive('small') {
+        margin-top: -20px;
+    }
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.footerWriteUs:hover {
+    background-color: $dark;
+    color: $gold;
+}
+
+h1.footerAdress {
+    font-size: clamp(20px, 1.8vw, 35px);
+}
+
+.footerCopyright {
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: $dark;
+}
+
+.mt {
+    margin-top: 30px;
+}
+
+h1.footerCompany {
+    font-size: clamp(18px, 1.6vw, 30px);
+}

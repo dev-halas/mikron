@@ -1,0 +1,63 @@
+.offer{
+    position: relative;
+    padding: 10vh 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    @include responsive('tablet') {
+        padding: 5vh 0;
+        flex-wrap: wrap;
+    }
+    em {
+        font-size: 16px;
+        font-style: normal;
+        letter-spacing: 5px;
+        margin-bottom: 20px;
+        color: $grey;
+    }
+
+    h1 {
+        font-size: clamp(32px, 4vw, 100px);
+        color: $gold;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+.offerLogo {
+    position: absolute;
+    left: 12.5vw;
+    top: -10vh;
+    max-width: 25vw;
+    @include responsive('tablet') {
+        left: 5vw;
+        max-width: 50vw;
+    }
+}
+
+.offer--img {
+    object-fit: cover;
+    width: 65%;
+    height: 75vh;
+    @include responsive('tablet') {
+        width: 100%;
+        height: 25vh;
+    }
+}
+
+.offer--inner {
+    position: absolute;
+    padding: 5vw;
+    background-color: $dark;
+    z-index: 10;
+    width: 50%;
+    right: 0;
+    @include responsive('tablet') {
+        position: relative;
+        width: 100%;
+    }
+}

@@ -1,0 +1,21 @@
+@import "./base/reset.scss";
+@import "./base/core.scss";
+
+/* ------ Layouts ------ */
+@import "./layout/header.scss";
+
+
+/* ------ Components ------ */
+@import "./components/hero.scss";
+@import "./components/offer.scss";
+@import "./components/whyUs.scss";
+@import "./components/trustedUs.scss";
+@import "./components/map.scss";
+@import "./components/contact.scss";
+
+
+/* ------ animations --------*/
+@import "./base/animations.scss";
+
+/* ------ Footer ------ */
+@import "./layout/footer.scss";

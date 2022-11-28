@@ -1,0 +1,273 @@
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    transition: top .5s ease-in-out;
+    -webkit-transition: top .5s ease-in-out;
+    -moz-transition: top .5s ease-in-out;
+    -ms-transition: top .5s ease-in-out;
+    -o-transition: top .5s ease-in-out;
+}
+
+.headerInner {
+    width: 85vw;
+    height: 12vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include responsive('tablet') {
+        width: 90vw;
+    }
+}
+
+.headerLogo img {
+    max-width: clamp(300px,16vw,500px);
+    filter: brightness(0) invert(1);
+}
+
+.headerLinks {
+    display: flex;
+
+    ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+    }
+
+    a {
+        padding: 10px 2.5vw;
+        color: #d3d3d4;
+        font-weight: normal;
+        letter-spacing: 1.2px;
+        font-size: 16px;
+    }
+
+    li:last-child a{
+        padding-right: 0;
+    }
+
+    ul.headerLang {
+        padding-left: calc(2.5vw + 8px);
+        a {
+            padding: 8px;
+            font-weight: 800;
+            font-size: 14px;
+        }
+        a.langSelected {
+            color: $gold;
+        }
+    }
+
+    @include responsive('tablet') {
+        flex-direction: column;
+        ul.headerLang {
+            flex-direction: row;
+            margin-top: 10vh;
+        }
+    }
+}
+
+.header.scrolled {
+    position: fixed;
+    background-color: $dark;
+    animation: headerFade .5s both;
+    -webkit-animation: headerFade .5s both;
+    box-shadow: rgba(237, 221, 149, 0.07) 0px 28px 100px 0px;
+}
+
+.hamburger {
+    display: none;
+}
+
+@include responsive('tablet') {
+    .header.--active {
+        background-color: $dark;
+        z-index: 999;
+        position: fixed;
+    }
+
+    .header.--active.scrolled {
+        animation: none;
+        -webkit-animation: none;
+}
+
+    .headerLogo img {
+        max-width: 220px;
+    }
+
+    .headerLinks {
+        display: none;
+        animation: navLinksOut .5s both;
+        -webkit-animation: navLinksOut .5s both;
+    }
+
+    .headerLinks ul {
+        flex-direction: column;
+        font-size: 28px;
+        line-height: 60px;
+        letter-spacing: 2px;
+    }
+
+    .--active .headerLinks {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        order: 1;
+        flex: 1 0 100%;
+        height: calc(90vh + 1px);
+        background-color: $dark;
+        position: absolute;
+        top: calc(10vh - 1px);
+        left: 0;
+        width: 100%;
+        animation: navLinksFade .5s both;
+        -webkit-animation: navLinksFade .5s both;
+    }
+
+    .scrolled .headerLinks {
+        top: 10vh;
+    }
+
+    .headerLinks a {
+        color: $white;
+    }
+
+    /* HAMBURGER STYLES */
+
+    .hamburger {
+        cursor: pointer;
+        background-color: transparent;
+        display: inline-block;
+        padding: 15px 0px 15px 15px;
+        border: none;
+        outline: none;
+    }
+    
+    .hamburger__box {
+        position: relative;
+        width: 32px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hamburger__inner {
+        width: 100%;
+        height: 2px;
+        background-color: $white;
+        position: absolute;
+        transition: background-color .1s .2s ease-in-out;
+    }
+    
+    .hamburger__inner::before, .hamburger__inner::after {
+        content: '';
+        height: 2px;
+        background-color: $white;
+        position: absolute;
+        transition: transform .2s .2s ease-in-out;
+    }
+    
+    .hamburger__inner::before {
+        top: -10px;
+        width: 80%;
+        right: 0;
+    }
+
+    .hamburger__inner::after {
+        top: 10px;
+        width: 70%;
+        right: 0;
+    }
+
+    .header.--active .hamburger__inner {
+        background-color: transparent;
+    }
+    .header.--active .hamburger__inner::before {
+        width: 100%;
+        transform: translateY(10px) rotate(45deg);
+        background-color:$white;
+        -webkit-transform: translateY(10px) rotate(45deg);
+        -moz-transform: translateY(10px) rotate(45deg);
+        -ms-transform: translateY(10px) rotate(45deg);
+        -o-transform: translateY(10px) rotate(45deg);
+    }
+    .header.--active .hamburger__inner::after {
+        width: 100%;
+        transform: translateY(-10px) rotate(-45deg);
+        background-color: $white;
+        -webkit-transform: translateY(-10px) rotate(-45deg);
+        -moz-transform: translateY(-10px) rotate(-45deg);
+        -ms-transform: translateY(-10px) rotate(-45deg);
+        -o-transform: translateY(-10px) rotate(-45deg);
+    }
+}
+
+@keyframes headerFade {
+    from {
+        opacity: .5;
+        transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+}
+    
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+        -moz-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+        -o-transform: translateY(0%);
+    }
+}
+
+@keyframes navLinksFade {
+    from {
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+}
+    
+    to {
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+    }
+}
+
+@keyframes navLinksOut {
+    from {
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+    }
+    
+    to {
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+    }
+}
+
+
+#back_top {
+    height: 0;
+}
+
+
+html:lang(pl) .langPL, html:lang(en) .langEN, html:lang(de) .langDE{
+    color: $gold;
+}

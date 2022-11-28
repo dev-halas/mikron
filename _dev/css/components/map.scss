@@ -1,0 +1,21 @@
+.mapContainer {
+    margin: auto;
+    width: 90vw;
+    margin-bottom: 15vh;
+    text-align: center;
+}
+
+.mapContainer h1 {
+    margin-bottom: 50px;
+}
+
+#map {
+    width: 100%;
+    height: 40vh;
+    margin-top: 50px;
+    display: block;
+}
+
+#mapContent {
+    color: $dark;
+}

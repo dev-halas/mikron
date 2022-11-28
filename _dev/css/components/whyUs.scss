@@ -1,0 +1,119 @@
+.whyUs {
+    padding: 8vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.whyUs--inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2vw;
+    padding: 80px 0;
+    max-width: 90vw;
+    margin: auto;
+}
+
+.whyUs--col {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    @include responsive('tablet') {
+        grid-column: span 4;
+        margin-bottom: 50px;
+    }
+}
+
+.whyUs--icon {
+    position: relative;
+    padding: 1.2vw;
+    width: 7vw;
+    height: 7vw;
+    margin-bottom: 50px;
+    @include responsive('tablet') {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 30px;
+        padding: 15px;
+    }
+}
+
+.whyUs--icon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border: 3px dashed $gold;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: borderRotateRight 15s linear infinite;
+    -webkit-animation: borderRotateRight 15s linear infinite;
+}
+
+.whyUs--logo {
+    width: 32px;
+    height: auto;
+}
+
+@keyframes borderRotateRight {
+    from {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+}
+
+.whyUs--col span {
+    color: $gold;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.whyUs--gears {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.whyUs--horizontal1 {
+    position: absolute;
+    z-index: -1;
+    top: 0%;
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(90deg, rgba(191,191,191,0.6) 0%, rgba(94,94,94,0.35) 55%, rgba(98,98,98,0.6) 100%);
+    @include responsive('small') {
+        top: 10%;
+    }
+}
+
+.whyUs--horizontal2 {
+    position: absolute;
+    z-index: -1;
+    top: 43%;
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(90deg, rgba(191,191,191,0.6) 0%, rgba(94,94,94,0.35) 55%, rgba(98,98,98,0.6) 100%);
+    @include responsive('small') {
+        top: 60%;
+    }
+}
